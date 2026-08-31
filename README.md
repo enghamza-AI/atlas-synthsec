@@ -16,7 +16,7 @@ This is a portfolio piece, not a client deliverable. All data is synthetic and c
 
 ## Live demo
 
-**[Try it on Hugging Face →](https://huggingface.co/spaces/enghamza-AI/atlas)**
+**[Try it on streamlit →](https://atlas-synthsec.streamlit.app)**
 
 ## The problem
 
