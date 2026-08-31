@@ -1,0 +1,98 @@
+
+synthetic_data:
+  n_campaigns: 150
+  random_seed: 42
+
+
+  duration_weeks_min: 2
+  duration_weeks_max: 12
+
+
+  avg_order_value: 85.0
+
+  
+  impressions_per_person: 6.0
+
+  
+  audience_size_lognormal_mean: 9.5    
+  audience_size_lognormal_sigma: 0.9
+
+  
+  holdout_test_fraction: 0.30
+
+  
+  holdout_size_fraction: 0.10
+
+
+  channels:
+    paid_search_brand:
+      organic_propensity_base: 0.014  
+      true_lift_base: 0.0006          
+      cpm: 8.0
+      ctr_base: 0.06
+    paid_search_nonbrand:
+      organic_propensity_base: 0.003
+      true_lift_base: 0.0022
+      cpm: 12.0
+      ctr_base: 0.03
+    paid_social:
+      organic_propensity_base: 0.0015
+      true_lift_base: 0.0026
+      cpm: 9.0
+      ctr_base: 0.015
+    display_retargeting:
+      organic_propensity_base: 0.009   
+      true_lift_base: 0.0013
+      cpm: 4.0
+      ctr_base: 0.008
+    influencer:
+      organic_propensity_base: 0.0013
+      true_lift_base: 0.0032
+      cpm: 15.0
+      ctr_base: 0.02
+    out_of_home:
+      organic_propensity_base: 0.0008
+      true_lift_base: 0.0016
+      cpm: 6.0
+      ctr_base: 0.0    
+
+cleaning:
+  
+  drop_negative_metrics: true
+
+  
+  min_weeks_per_campaign: 1
+
+feature_engineering:
+  
+  min_holdout_size_for_label: 200
+
+segmentation:
+  n_clusters: 4
+  random_state: 42
+  n_init: 10
+  clustering_features:
+    - "naive_roas"
+    - "estimated_incremental_roas"
+    - "spend_share_pct"
+
+scoring:
+  test_size: 0.2
+  random_state: 42
+  n_estimators: 200
+  max_depth: 6  
+                  
+                  
+
+recommendations:
+
+  vanity_gap_multiplier: 1.8
+
+  
+  scale_incremental_roas_floor: 1.5
+
+app:
+  data_mode_default: "demo"
+  demo_max_rows: 150   
+                       
+  demo_csv_path: "data/demo_sample.csv"
